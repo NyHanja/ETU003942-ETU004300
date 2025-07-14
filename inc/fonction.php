@@ -34,13 +34,17 @@ function mampiditra($Email, $mdp, $nom, $dtn, $ville, $genre) {
         return $ami;
     }
     function list_object($id_categorie){
-        $sql="SELECT * FROM objet JOIN emprunt ON emprunt.id_objet=objet.id_objet WHERE 2=2";
+        $sql="SELECT * FROM objet WHERE 2=2";
         if($id_categorie!=-1)$sql.=" AND objet.id_categorie='$id_categorie'";
         $result = mysqli_query(connexion(),$sql);
     $donnee = array();
+    echo $sql;
     while($a = mysqli_fetch_assoc($result))
     {
         $donnee[] = $a;
     }
-    }   
+    return $donnee;
+    }
+    function emprunter($id_objet)  
+    
 ?>

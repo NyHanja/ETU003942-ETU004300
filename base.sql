@@ -30,11 +30,7 @@ CREATE TABLE objet (
 CREATE TABLE image_objet (
     id_image INT AUTO_INCREMENT PRIMARY KEY,
     id_objet INT, 
-    id_membre INT,
-    emprunt DATE,
-    retour DATE,
-    FOREIGN KEY (id_objet) REFERENCES objet(id_objet),
-    FOREIGN KEY (id_membre) REFERENCES membre(id_membre)
+    nom_image VARCHAR(100)
 );
 
 CREATE TABLE emprunts (

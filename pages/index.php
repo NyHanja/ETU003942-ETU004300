@@ -34,6 +34,7 @@
 
             <?php
                 session_start();
+                $_SESSION['cat'] = -1;
                 $_SESSION['b'] = 1;
                 if (isset($_SESSION['a']) && $_SESSION['a'] == 0) {
                     echo "<p class='text-danger text-center mt-3'>Il y a une erreur</p>";
