@@ -2,7 +2,7 @@ CREATE OR Replace database ExamenS2;
 use ExamenS2;
 
 
-CREATE TABLE membre (
+CREATE TABLE final_membre (
     id_membre INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
     date_naissance DATE,
@@ -13,12 +13,12 @@ CREATE TABLE membre (
     ville VARCHAR(100)
 );
 
-CREATE TABLE categorie_objet (
+CREATE TABLE final_categorie_objet (
     id_categorie INT AUTO_INCREMENT PRIMARY KEY,
     nom_categorie VARCHAR(100)
 );
 
-CREATE TABLE objet (
+CREATE TABLE final_objet (
     id_objet INT AUTO_INCREMENT PRIMARY KEY,
     nom_objet VARCHAR(100),
     id_categorie INT,
@@ -27,13 +27,13 @@ CREATE TABLE objet (
     FOREIGN KEY (id_membre) REFERENCES membre(id_membre)
 );
 
-CREATE TABLE image_objet (
+CREATE TABLE final_image_objet (
     id_image INT AUTO_INCREMENT PRIMARY KEY,
     id_objet INT, 
     nom_image VARCHAR(100)
 );
 
-CREATE TABLE emprunts (
+CREATE TABLE final_emprunts (
     id_emprunt INT AUTO_INCREMENT PRIMARY KEY,
     id_objet INT, 
     id_membre INT,
@@ -44,21 +44,21 @@ CREATE TABLE emprunts (
 );
 
 -- Membres
-INSERT INTO membre (nom, date_naissance, mdp, genre, email, ville) VALUES 
+INSERT INTO final_membre (nom, date_naissance, mdp, genre, email, ville) VALUES 
 ('Élise Lefevre', '1989-03-14', 'xZ3R8M5Ylq',  'Femme', 'elise.lefevre@example.com', 'Paris'),
 ('Julien Moreau', '1985-07-23', 'XrT4e2HkQw', 'Homme', 'julien.moreau@example.com', 'Lyon'),
 ('Camille Bernard', '1992-11-02', 'T7kLo6nPfR', 'Femme', 'camille.bernard@example.com', 'Marseille'),
 ('Lucas Dupont', '1978-04-30', 'Pw9Jx8UiVk', 'Homme', 'lucas.dupont@example.com', 'Toulouse');
 
 -- Catégories
-INSERT INTO categorie_objet (nom_categorie) VALUES
+INSERT INTO final_categorie_objet (nom_categorie) VALUES
 ('Esthétique'),
 ('Bricolage'),
 ('Mécanique'),
 ('Cuisine');
 
 -- Objets
-INSERT INTO objet (nom_objet, id_categorie, id_membre) VALUES
+INSERT INTO final_objet (nom_objet, id_categorie, id_membre) VALUES
 -- Membre 1 (Élise Lefevre)
 ('Sèche-cheveux', 1, 1),
 ('Marteau', 2, 1),
@@ -108,7 +108,7 @@ INSERT INTO objet (nom_objet, id_categorie, id_membre) VALUES
 ('Crème hydratante', 1, 4);
 
 -- Emprunts
-INSERT INTO emprunts (id_objet, id_membre, emprunt, retour) VALUES
+INSERT INTO final_emprunts (id_objet, id_membre, emprunt, retour) VALUES
 (2, 2, '2025-03-10', '2025-03-20'),
 (5, 3, '2025-02-01', '2025-02-12'),
 (11, 1, '2025-01-15', '2025-01-25'),
@@ -119,4 +119,17 @@ INSERT INTO emprunts (id_objet, id_membre, emprunt, retour) VALUES
 (33, 1, '2025-02-10', '2025-02-20'),
 (35, 3, '2025-01-10', '2025-01-22'),
 (39, 2, '2025-06-20', '2025-06-30');
+
+INSERT INTO final_image_objet (id_objet, nom_image) VALUES
+(1, 'sechoir.jpg'), (2, 'miroir.jpg'), (3, 'perceuse.jpg'), (4, 'scie.jpg'),
+(5, 'cle_molette.jpg'), (6, 'cric.jpg'), (7, 'mixeur.jpg'), (8, 'robot.jpg'),
+(9, 'pinceau.jpg'), (10, 'ponceuse.jpg'), (11, 'lisseur.jpg'), (12, 'pince.jpg'),
+(13, 'marteau.jpg'), (14, 'tournevis.jpg'), (15, 'jack.jpg'), (16, 'trousse.jpg'),
+(17, 'poele.jpg'), (18, 'couteau.jpg'), (19, 'masque.jpg'), (20, 'scie_sauteuse.jpg'),
+(21, 'epilateur.jpg'), (22, 'brosse.jpg'), (23, 'visseuse.jpg'), (24, 'niveau.jpg'),
+(25, 'cle_dyno.jpg'), (26, 'compresseur.jpg'), (27, 'cocotte.jpg'), (28, 'grille_pain.jpg'),
+(29, 'palette.jpg'), (30, 'etau.jpg'), (31, 'rasoir.jpg'), (32, 'creme.jpg'),
+(33, 'perforateur.jpg'), (34, 'pince_coupante.jpg'), (35, 'diagnostic.jpg'), (36, 'cric_meca.jpg'),
+(37, 'cafe.jpg'), (38, 'fouet.jpg'), (39, 'bain_bouche.jpg'), (40, 'ruban.jpg');
+
 
