@@ -1,3 +1,7 @@
+CREATE OR Replace database ExamenS2;
+use ExamenS2;
+
+
 CREATE TABLE membre (
     id_membre INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
@@ -44,11 +48,11 @@ CREATE TABLE emprunts (
 );
 
 -- Membres
-INSERT INTO membre (nom, date_naissance, mdp, image_profil, genre, email, ville) VALUES 
-('Élise Lefevre', '1989-03-14', 'xZ3R8M5Ylq', 'profile1.jpg', 'Femme', 'elise.lefevre@example.com', 'Paris'),
-('Julien Moreau', '1985-07-23', 'XrT4e2HkQw', 'profile2.jpg', 'Homme', 'julien.moreau@example.com', 'Lyon'),
-('Camille Bernard', '1992-11-02', 'T7kLo6nPfR', 'profile3.jpg', 'Femme', 'camille.bernard@example.com', 'Marseille'),
-('Lucas Dupont', '1978-04-30', 'Pw9Jx8UiVk', 'profile4.jpg', 'Homme', 'lucas.dupont@example.com', 'Toulouse');
+INSERT INTO membre (nom, date_naissance, mdp, genre, email, ville) VALUES 
+('Élise Lefevre', '1989-03-14', 'xZ3R8M5Ylq',  'Femme', 'elise.lefevre@example.com', 'Paris'),
+('Julien Moreau', '1985-07-23', 'XrT4e2HkQw', 'Homme', 'julien.moreau@example.com', 'Lyon'),
+('Camille Bernard', '1992-11-02', 'T7kLo6nPfR', 'Femme', 'camille.bernard@example.com', 'Marseille'),
+('Lucas Dupont', '1978-04-30', 'Pw9Jx8UiVk', 'Homme', 'lucas.dupont@example.com', 'Toulouse');
 
 -- Catégories
 INSERT INTO categorie_objet (nom_categorie) VALUES
